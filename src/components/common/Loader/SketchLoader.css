@@ -1,0 +1,95 @@
+.sketch-loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #FDFBF7;
+    /* Sketchbook Paper Color */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.pencil-drawing {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+/* SVG Circle Animation */
+.circle-svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.circle-path {
+    fill: none;
+    stroke: #2D2D2D;
+    /* Graphite */
+    stroke-width: 4;
+    stroke-dasharray: 283;
+    /* 2 * PI * 45 */
+    stroke-dashoffset: 283;
+    animation: drawCircle 1.5s ease-in-out infinite;
+    stroke-linecap: round;
+}
+
+@keyframes drawCircle {
+    0% {
+        stroke-dashoffset: 283;
+    }
+
+    50% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: -283;
+    }
+}
+
+/* Simulating the Pencil Icon Moving */
+.pencil-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: movePencil 1.5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Calculate the path of the pencil to match the circle */
+@keyframes movePencil {
+    0% {
+        transform: rotate(0deg) translateX(45px) rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(45px) rotate(-360deg);
+    }
+}
+
+.loader-text {
+    margin-top: 2rem;
+    font-family: 'Architects Daughter', cursive;
+    color: #2D2D2D;
+    font-size: 1.5rem;
+    animation: pulseText 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseText {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}

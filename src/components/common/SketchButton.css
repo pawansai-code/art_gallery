@@ -1,0 +1,42 @@
+/* src/components/common/SketchButton.css */
+.sketch-button {
+    background: transparent;
+    border: 2px solid currentColor;
+    color: inherit;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-family: 'Architects Daughter', cursive;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+/* Scribble effect background on hover */
+.sketch-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: currentColor;
+    z-index: -1;
+    transition: left 0.3s ease;
+    opacity: 0.1;
+}
+
+.sketch-button:hover::before {
+    left: 0;
+}
+
+.sketch-button:hover {
+    transform: scale(1.05) rotate(-1deg);
+    box-shadow: 3px 3px 0px currentColor;
+}

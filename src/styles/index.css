@@ -1,0 +1,33 @@
+/* src/styles/index.css */
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Architects Daughter', cursive;
+    background-color: #FDFBF7;
+    /* Sketchbook Cream */
+    color: #2D2D2D;
+    /* Soft Charcoal */
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Architects Daughter', cursive;
+    margin-top: 0;
+    color: #2D2D2D;
+}
+
+button {
+    font-family: inherit;
+}
