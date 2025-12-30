@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Frame, Layers, PenTool, Search } from 'lucide-react';
+import { Frame, Layers, PenTool } from 'lucide-react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import achieve1 from '../../assets/images/achieve1.jpeg';
@@ -33,6 +33,25 @@ const Home = () => {
         }
     };
 
+    // Typewriter effect variants
+    const typewriterContainer = {
+        hidden: { opacity: 1 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.08, // Adjust typing speed
+                delayChildren: 0.5 // Wait slightly for section fade-in
+            }
+        }
+    };
+
+    const typewriterChar = {
+        hidden: { opacity: 0, y: 10 },
+        visible: { opacity: 1, y: 0 }
+    };
+
+    const titleText = "Experience the raw beauty of graphite.";
+
     const { scrollY } = useScroll();
     const yHero = useTransform(scrollY, [0, 500], [0, 150]); // Parallax effect
 
@@ -54,8 +73,16 @@ const Home = () => {
                 </div>
                 
                 <div className="hero-content">
-                    <motion.h1 className="hero-title" variants={fadeInUp}>
-                        Experience the raw beauty of graphite.
+                    {/* Character-by-character "step by step" animation */}
+                    <motion.h1 
+                        className="hero-title" 
+                        variants={typewriterContainer}
+                    >
+                        {titleText.split("").map((char, index) => (
+                            <motion.span key={index} variants={typewriterChar}>
+                                {char}
+                            </motion.span>
+                        ))}
                     </motion.h1>
                     <motion.p className="hero-subtitle" variants={fadeInUp}>
                         Original, hand-drawn pencil sketches for your home and collection.
@@ -224,22 +251,22 @@ const Home = () => {
                         className="testimonial-card"
                         whileHover={{ scale: 1.05, rotate: 0 }}
                     >
-                        <p className="testimonial-text">"The texture in the drawing is incredible. It looks even better in person than on the website. Truly a masterpiece."</p>
-                        <span className="testimonial-author">- Sarah J., New York</span>
+                        <p className="testimonial-text">"The artwork feels calm and thoughtful. I keep noticing new details every time I look at it. It brings a quiet warmth to my space."</p>
+                        <span className="testimonial-author">- Ponmalar</span>
                     </motion.div>
                     <motion.div 
                         className="testimonial-card"
                         whileHover={{ scale: 1.05, rotate: 0 }}
                     >
-                        <p className="testimonial-text">"Arrived perfectly packaged. The attention to detail is stunning. I can't wait to frame it!"</p>
-                        <span className="testimonial-author">- Michael R., London</span>
+                        <p className="testimonial-text">"Beautifully done. The simplicity and emotion in the piece really stand out. It adds a peaceful mood to my room."</p>
+                        <span className="testimonial-author">- Prathiksha Chandrasekar</span>
                     </motion.div>
                     <motion.div 
                         className="testimonial-card"
                         whileHover={{ scale: 1.05, rotate: 0 }}
                     >
-                        <p className="testimonial-text">"A soulful addition to my study. The artist captures emotion beautifully."</p>
-                        <span className="testimonial-author">- Elena D., Berlin</span>
+                        <p className="testimonial-text">"I love the overall feel of this artwork. It’s subtle, expressive, and looks even better in person"</p>
+                        <span className="testimonial-author">- Meganathan</span>
                     </motion.div>
                 </div>
             </section>
