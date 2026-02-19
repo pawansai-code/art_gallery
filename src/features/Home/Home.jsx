@@ -266,7 +266,7 @@ const Home = () => {
                         whileHover={{ scale: 1.05, rotate: 0 }}
                     >
                         <p className="testimonial-text">"I love the overall feel of this artwork. It’s subtle, expressive, and looks even better in person"</p>
-                        <span className="testimonial-author">- Meganathan</span>
+                        <span className="testimonial-author">- Anoob Krishna</span>
                     </motion.div>
                 </div>
             </section>
