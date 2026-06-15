@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { Route, BrowserRouter as Router, Routes, useLocation } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes, useLocation, Navigate, useNavigate } from 'react-router-dom';
 import './App.css';
 import SketchLoader from './components/common/Loader/SketchLoader';
 import Footer from './components/layout/Footer/Footer';
@@ -9,6 +9,7 @@ import AboutPage from './features/About/AboutPage';
 import ArtistsPage from './features/Artists/ArtistsPage';
 import Gallery from './features/Gallery/Gallery';
 import Home from './features/Home/Home';
+import NotFound from './features/NotFound/NotFound';
 import ShopPage from './features/shop/ShopPage';
 
 
@@ -26,7 +27,13 @@ const Layout = ({ children }) => (
 // Wrapper to handle animations and scroll
 const AppContent = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const [pageLoading, setPageLoading] = useState(false);
+
+    // Force navigation to home page on initial load
+    useEffect(() => {
+        navigate('/', { replace: true });
+    }, []);
 
     // Scroll to top on route change
     useEffect(() => {
@@ -64,6 +71,7 @@ const AppContent = () => {
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/contact" element={<AboutPage />} />
                 <Route path="/login" element={<div className="container"><h2>Login Page (Is Coming Soon)</h2></div>} />
+                <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
         </Layout>
     );
