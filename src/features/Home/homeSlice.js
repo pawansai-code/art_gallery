@@ -8,6 +8,8 @@ import art14 from '../../assets/images/art-14.jpeg';
 import art15 from '../../assets/images/art-15.jpeg';
 import art16 from '../../assets/images/art-16.jpeg';
 import art17 from '../../assets/images/art-17.jpeg';
+import art18 from '../../assets/images/art-18.jpeg';
+import art19 from '../../assets/images/art-19.jpeg';
 import art2 from '../../assets/images/art-2.jpg';
 import art3 from '../../assets/images/art-3.jpg';
 import art4 from '../../assets/images/art-4.jpg';
@@ -30,6 +32,10 @@ const initialState = {
 
 export const fetchArtworks = createAsyncThunk('home/fetchArtworks', async () => {
     return [
+        { id: 18, title: 'New Art 18', artist: 'Pawan', description: 'Added artwork 18.', category: 'Sketch', image: art18 },
+
+        { id: 19, title: 'New Art 19', artist: 'Pawan', description: 'Added artwork 19.', category: 'Sketch', image: art19 },
+
         { id: 1, title: 'Me..!', artist: 'Pawan sai', description: 'Me, Drawn by me..!', category: 'Sketch', image: art17 },
 
         { id: 2, title: 'lil Bro', artist: 'Pawan', description: 'This sketch freezes a fleeting moment of childhood innocence.', category: 'Sketch', image: art16 },

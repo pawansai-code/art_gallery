@@ -11,7 +11,7 @@ const ARTIST_IMAGES = {
 };
 
 const ArtistsPage = () => {
-    
+
     const artists = [
         {
             id: 1,
@@ -19,7 +19,7 @@ const ArtistsPage = () => {
             handle: "@artbeatzz",
             bio: "Capturing the soul through charcoal and graphite. Specializing in hyper-realistic portraits that tell a story beyond the paper.",
             image: ARTIST_IMAGES.pawan,
-            instagram: "https://www.instagram.com/artbeatzz_17/", 
+            instagram: "https://www.instagram.com/artbeatzz_17/",
             role: "Lead Artist & Founder"
         },
         {
@@ -28,7 +28,7 @@ const ArtistsPage = () => {
             handle: "@joel_artzz",
             bio: "A master of perspective and detail. Bringing imagination to life with bold strokes and a unique artistic vision.",
             image: ARTIST_IMAGES.joel,
-            instagram: "https://www.instagram.com/joel_artzz/", 
+            instagram: "https://www.instagram.com/joel_artzzz_/",
             role: "Featured Artist"
         }
     ];
@@ -45,22 +45,22 @@ const ArtistsPage = () => {
 
     const cardVariants = {
         hidden: { opacity: 0, y: 50, rotate: -2 },
-        visible: { 
-            opacity: 1, 
-            y: 0, 
+        visible: {
+            opacity: 1,
+            y: 0,
             rotate: 0,
-            transition: { 
+            transition: {
                 type: "spring",
                 stiffness: 100,
                 damping: 12
-            } 
+            }
         }
     };
 
     return (
         <div className="artists-page">
             <div className="container">
-                <motion.div 
+                <motion.div
                     className="artists-header"
                     initial={{ opacity: 0, y: -30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -70,18 +70,18 @@ const ArtistsPage = () => {
                     <p className="artists-subtitle">Meet the visionaries behind the strokes.</p>
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                     className="artists-grid"
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
                 >
                     {artists.map((artist) => (
-                        <motion.div 
-                            key={artist.id} 
+                        <motion.div
+                            key={artist.id}
                             className="artist-card-container"
                             variants={cardVariants}
-                            whileHover={{ scale: 1.02 }} 
+                            whileHover={{ scale: 1.02 }}
                         >
                             <div className="artist-card">
                                 <div className="artist-img-wrapper">
